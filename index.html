@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,416 +9,549 @@
   <script src="index.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    
-    <!-- Top Header Navigation -->
-    <header class="main-header">
-      <div class="logo">
-        <h2>YG Portfolio</h2>
-      </div>
-      <div class="header-actions">
-        <!-- Share Button -->
-        <button class="btn-secondary" id="share-btn" title="Share Portfolio Link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
-          Share
-        </button>
-        <!-- Print / PDF Download Button -->
-        <button class="btn-primary" onclick="window.print()" title="Download PDF Resume">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download PDF
-        </button>
-        <!-- Theme Toggle Switch -->
-        <button class="btn-icon" id="theme-toggle" aria-label="Toggle Theme">
-          <!-- SVG icon loaded via JS -->
-        </button>
-      </div>
-    </header>
-
-    <div class="portfolio-grid">
+  
+  <!-- 1. Top Dark Block (Header + Hero Section) -->
+  <section class="hero-block" id="home">
+    <div class="container">
       
-      <!-- Sidebar Panel: Profile & Contact Card Details -->
-      <aside class="profile-sidebar">
+      <!-- Main Navigation Header -->
+      <header class="main-header">
+        <div class="logo">
+          <h2>YG</h2>
+        </div>
+        <nav class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </nav>
+        <div class="header-actions">
+          <!-- Toggle Theme -->
+          <button class="btn-icon" id="theme-toggle" aria-label="Toggle Theme">
+            <!-- Moon icon loaded via JS -->
+          </button>
+          <!-- Outline Download Resume -->
+          <button class="btn-header-resume" onclick="window.print()" title="Download PDF Resume">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Resume
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Content -->
+      <div class="hero-content" id="about">
         
-        <!-- Profile Card -->
-        <div class="glass-card profile-info-card">
-          <div class="profile-avatar-container">
-            <img class="profile-avatar" src="profile.png" alt="Yashika Gautam Portrait">
-          </div>
-          <div class="profile-info" style="margin-top: 20px;">
-            <h1>Yashika Gautam</h1>
-            <div class="title">Operations Executive at Flipkart</div>
-            <div class="location-tag">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              Rajnandgaon, Chhattisgarh
-            </div>
-          </div>
+        <!-- Profile Picture Container with 3D hover -->
+        <div class="profile-avatar-container">
+          <img class="profile-avatar" src="profile.png" alt="Yashika Gautam Photo">
         </div>
 
-        <!-- Contact Methods Card (Clickable links!) -->
-        <div class="glass-card contact-card-container">
-          <div class="contact-links">
-            <a href="tel:+919179956526" class="contact-card">
-              <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Name, Role & Tagline Info -->
+        <div class="hero-text-details">
+          <h1>YASHIKA <br><span>GAUTAM</span></h1>
+          <div class="hero-subtitle">Operations Executive at Flipkart</div>
+          <div class="hero-tagline">
+            Managing 200K+ Daily Units | Leading 150+ Associates <br>Driving Large-Scale Fulfillment Operations
+          </div>
+
+          <!-- Contact Cards Grid -->
+          <div class="hero-contacts-grid">
+            <a href="tel:+919179956526" class="hero-contact-card">
+              <div class="contact-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
               </div>
-              <div class="contact-details">
-                <span class="contact-label">Phone</span>
-                <span class="contact-value">+91 9179956526</span>
+              <div class="contact-info-text">
+                <span class="contact-info-title">+91 9179956526</span>
+                <span class="contact-info-subtitle">Call Anytime</span>
               </div>
             </a>
-            
-            <a href="mailto:yashikasingh0303@gmail.com" class="contact-card">
-              <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+            <a href="mailto:yashikasingh0303@gmail.com" class="hero-contact-card">
+              <div class="contact-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
               </div>
-              <div class="contact-details">
-                <span class="contact-label">Email</span>
-                <span class="contact-value">yashikasingh0303@gmail.com</span>
+              <div class="contact-info-text">
+                <span class="contact-info-title" title="yashikasingh0303@gmail.com">yashikasingh0303@gmail.com</span>
+                <span class="contact-info-subtitle">Drop a Mail</span>
               </div>
             </a>
 
-            <a href="https://linkedin.com/in/yashika-gautam-90b249266" target="_blank" rel="noopener noreferrer" class="contact-card">
-              <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="https://linkedin.com/in/yashika-gautam-90b249266" target="_blank" rel="noopener noreferrer" class="hero-contact-card">
+              <div class="contact-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
                   <circle cx="4" cy="4" r="2"></circle>
                 </svg>
               </div>
-              <div class="contact-details">
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-value">yashika-gautam-90b249266</span>
+              <div class="contact-info-text">
+                <span class="contact-info-title">linkedin.com/in/yashika-gautam-90b249266</span>
+                <span class="contact-info-subtitle">Connect on LinkedIn</span>
               </div>
             </a>
+
+            <div class="hero-contact-card">
+              <div class="contact-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <span class="contact-info-title">Rajnandgaon, Chhattisgarh</span>
+                <span class="contact-info-subtitle">Location</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Hero Button Controls -->
+          <div class="hero-buttons">
+            <!-- Download PDF -->
+            <button class="btn-primary" onclick="window.print()" title="Download PDF Resume">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume PDF
+            </button>
+            <!-- Share PDF -->
+            <button class="btn-outline-white share-btn" title="Download Portfolio">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Download Portfolio
+            </button>
+            <!-- Share Link -->
+            <button class="btn-outline-white share-btn" title="Share Portfolio Link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              Share Portfolio
+            </button>
+          </div>
+
         </div>
 
-        <!-- Extracurricular Card -->
-        <div class="glass-card sidebar-extra">
-          <h3>Extracurricular Activities</h3>
-          <ul>
-            <li class="extra-item">
-              <svg class="extra-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              <span>Core Member of NGO “EK PAHAL EK KOSHISH”</span>
-            </li>
-            <li class="extra-item">
-              <svg class="extra-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              <span>NSS Leader at institutional level for 2 years</span>
-            </li>
-          </ul>
-        </div>
+      </div>
 
-      </aside>
+    </div>
+  </section>
 
-      <!-- Main Panel: Dashboard Panels -->
-      <main class="main-content">
+  <!-- 2. Body Metrics Section (Overlapping) -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
         
-        <!-- Welcome Hero Box -->
-        <section class="glass-card welcome-hero">
-          <h2>Fulfillment & Logistics Management Specialist</h2>
-          <p>
-            MBA graduate in International Transportation & Logistics Management with extensive experience in warehouse operations, logistics coordination, reverse logistics, and process optimization. Proven track record of managing high-volume fulfillment centers and leading large associate teams to drive daily operational throughput.
-          </p>
-        </section>
-
-        <!-- Metric Dashboard Grid -->
-        <section class="stats-grid">
-          
-          <div class="glass-card stat-card">
-            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="stat-card">
+          <div class="stat-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="1" y="3" width="15" height="13"></rect>
               <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
               <circle cx="5.5" cy="18.5" r="2.5"></circle>
               <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg>
-            <div class="stat-number" data-target="200000">0</div>
-            <div class="stat-label">Daily Units Processed</div>
-            <div class="stat-desc">Fulfillment Dispatch Operations</div>
           </div>
-          
-          <div class="glass-card stat-card">
-            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="stat-details">
+            <div class="stat-number" data-target="200000">0</div>
+            <div class="stat-label">Units Processed Daily</div>
+            <div class="stat-desc">Handled high-volume operations with precision & efficiency</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
+          </div>
+          <div class="stat-details">
             <div class="stat-number" data-target="150">0</div>
             <div class="stat-label">Associates Managed</div>
-            <div class="stat-desc">Supervised Shift Teams</div>
+            <div class="stat-desc">Led & motivated a large team across multiple shifts</div>
           </div>
-          
-          <div class="glass-card stat-card">
-            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
               <line x1="12" y1="22.08" x2="12" y2="12"></line>
             </svg>
-            <div class="stat-number" data-target="130000">0</div>
-            <div class="stat-label">Sq. Ft. Facility</div>
-            <div class="stat-desc">End-to-End Warehouse Area</div>
           </div>
-          
-          <div class="glass-card stat-card">
-            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="stat-details">
+            <div class="stat-number" data-target="130000">0</div>
+            <div class="stat-label">Sq Ft Operations</div>
+            <div class="stat-desc">Managed end-to-end operations across a large facility</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
               <polyline points="17 18 23 18 23 12"></polyline>
             </svg>
+          </div>
+          <div class="stat-details">
             <div class="stat-number" data-target="40">0</div>
             <div class="stat-label">Pendency Reduction</div>
-            <div class="stat-desc">Minimized Aged Shipments</div>
+            <div class="stat-desc">Reduced aged pendency & improved warehouse throughput</div>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Main Split Panels Section -->
+  <section class="container" id="experience">
+    <div class="experience-impact-grid">
+      
+      <!-- Left Panel: Operational Impact list -->
+      <div class="white-panel-card">
+        <h3 class="section-panel-title">Operational Impact</h3>
+        <div class="impact-list">
           
-        </section>
-
-        <!-- Recruiter Quick Filter Panel -->
-        <section class="glass-card recruiter-panel">
-          <div class="recruiter-panel-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            Recruiter Quick Filter Panel
-          </div>
-          <div class="recruiter-filters">
-            <button class="filter-chip" data-filter="leadership">
-              Highlight Leadership & Team Handling
-            </button>
-            <button class="filter-chip" data-filter="operations">
-              Highlight Warehouse & Logistics Operations
-            </button>
-            <button class="filter-chip" data-filter="analytics">
-              Highlight Analytics, Excel & SLA Controls
-            </button>
-          </div>
-        </section>
-
-        <!-- Bravo Award Spotlight Widget -->
-        <section class="glass-card bravo-card">
-          <div class="bravo-header">
-            <svg class="bravo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"></circle>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-            </svg>
-            <h3 class="bravo-title">Key Recognition: Flipkart Bravo Award</h3>
-          </div>
-          <p class="bravo-body">
-            Received the Flipkart Bravo Award for successfully managing critical warehouse operations during severe flood conditions with limited manpower, maintaining business continuity, and avoiding SLA breaches.
-          </p>
-          <button class="btn-secondary" id="open-bravo-modal" style="width: fit-content; padding: 8px 16px; font-size: 13px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-            Read Flood Crisis Case Study
-          </button>
-        </section>
-
-        <!-- Professional Experience & History -->
-        <section class="glass-card">
-          <div class="timeline-section-header">
-            <h2 class="section-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="impact-item">
+            <div class="impact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
               </svg>
-              Professional History
-            </h2>
-            <div class="timeline-nav">
-              <button class="timeline-tab active" data-target="timeline-job">Job Experience</button>
-              <button class="timeline-tab" data-target="timeline-intern">Internship</button>
+            </div>
+            <div class="impact-content">
+              <h4>High Volume Operations</h4>
+              <p>Led daily processing of 2,00,000+ units across inbound, outbound, sortation, Myntra, and reverse logistics operations.</p>
             </div>
           </div>
 
-          <!-- Tab 1: Flipkart Job Experience -->
-          <div class="timeline-container active" id="timeline-job">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-header">
-                <div class="timeline-role">
-                  <h3>Operations Executive</h3>
-                  <div class="company">Flipkart Internet Private Limited</div>
-                </div>
-                <div class="timeline-date">2024 - Present</div>
-              </div>
-              <ul class="timeline-details">
-                <li>Managed end-to-end warehouse operations across a 1.3 lakh sq. ft. facility, overseeing inbound, outbound, sortation, Myntra, and reverse logistics operations.</li>
-                <li>Led daily processing of 2,00,000+ units while ensuring SLA adherence, operational excellence, and timely dispatch across multiple business channels.</li>
-                <li>Supervised and managed a workforce of 150+ associates along with 5–6 Team Leads per shift, driving productivity, manpower planning, and shift-wise performance management.</li>
-                <li>Conducted on-floor coaching for 150+ associates, improving process adherence, reducing errors, and consistently achieving individual productivity and quality targets.</li>
-                <li>Improved manpower productivity by training and mentoring new joiners and underperforming associates, enabling teams to achieve daily operational targets during peak and non-peak periods.</li>
-                <li>Managed large-scale sortation operations, ensuring efficient shipment segregation, processing, and dispatch of 2,0,000+ units per day.</li>
-                <li>Oversaw returns and reverse logistics operations, including 3PL returns, rejected shipments, and inventory reconciliation, ensuring timely closure of operational pendencies.</li>
-                <li>Successfully reduced returns pendency exceeding 1,0,000 units during BBD (Big Billion Days) sale events through strategic manpower deployment and process optimization.</li>
-                <li>Reduced aged pendency of 3PL returns and rejected shipments by 40%+, significantly improving warehouse throughput and inventory availability.</li>
-                <li>Coordinated with Transportation, Inventory, Quality, Security, and Support teams to resolve operational bottlenecks and maintain smooth warehouse operations.</li>
-                <li>Prepared and analyzed MIS reports, productivity trackers, pendency reports, and operational dashboards to support data-driven decision-making.</li>
-                <li>Demonstrated deep knowledge of Fulfillment Center processes including receiving, put-away, inventory control, picking, packing, dispatch, and reverse logistics.</li>
-                <li>Consistently drove operational efficiency through manpower optimization, process improvements, pendency clearance, and performance monitoring.</li>
-              </ul>
+          <div class="impact-item">
+            <div class="impact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="impact-content">
+              <h4>Team Leadership</h4>
+              <p>Managed 150+ associates and 5-6 Team Leads per shift. Drove productivity, performance, and shift process adherence.</p>
             </div>
           </div>
 
-          <!-- Tab 2: Internship Experience -->
-          <div class="timeline-container" id="timeline-intern">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-header">
-                <div class="timeline-role">
-                  <h3>Internship Trainee</h3>
-                  <div class="company">Bales Project Cargo Logistics</div>
-                </div>
-                <div class="timeline-date">June 2023 - June 2023</div>
-              </div>
-              <div class="timeline-location" style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">Mundra, Gujarat</div>
-              <ul class="timeline-details">
-                <li>Contributed to e-marketing strategies and enhanced the company’s digital presence.</li>
-                <li>Gained deep operational insights into overall logistics, cargo transportation, and freight handling processes.</li>
-              </ul>
+          <div class="impact-item">
+            <div class="impact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+            </div>
+            <div class="impact-content">
+              <h4>Returns & Pendency Management</h4>
+              <p>Cleared return backlogs exceeding 100,000 units during peak Big Billion Days (BBD) sale events through strategic planning.</p>
             </div>
           </div>
 
-        </section>
-
-        <!-- Skill Hub Explorer Section -->
-        <section class="glass-card">
-          <h2 class="section-title" style="margin-bottom: 20px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-              <line x1="12" y1="22" x2="12" y2="15.5"></line>
-              <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-              <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-              <line x1="12" y1="2" x2="12" y2="8.5"></line>
-            </svg>
-            Core Competencies & Skills
-          </h2>
-          <div class="skill-tag-container">
-            <span class="skill-tag">Warehouse Operations</span>
-            <span class="skill-tag">Sortation Operations</span>
-            <span class="skill-tag">Inbound Operations</span>
-            <span class="skill-tag">Outbound Operations</span>
-            <span class="skill-tag">Returns Management</span>
-            <span class="skill-tag">Shipment Processing</span>
-            <span class="skill-tag">Manpower Deployment</span>
-            <span class="skill-tag">Team Handling</span>
-            <span class="skill-tag">Shift Management</span>
-            <span class="skill-tag">Workforce Planning</span>
-            <span class="skill-tag">Vendor Management</span>
-            <span class="skill-tag">KPI Monitoring</span>
-            <span class="skill-tag">Process Improvement</span>
-            <span class="skill-tag">Productivity Management</span>
-            <span class="skill-tag">Capacity Planning</span>
-            <span class="skill-tag">Escalation Handling</span>
-            <span class="skill-tag">Root Cause Analysis (RCA)</span>
-            <span class="skill-tag">Performance Reporting</span>
-            <span class="skill-tag">MIS Reporting</span>
-            <span class="skill-tag">Microsoft Excel</span>
-            <span class="skill-tag">Google Sheets</span>
-            <span class="skill-tag">Warehouse Management System (WMS)</span>
-            <span class="skill-tag">Transportation Coordination</span>
-            <span class="skill-tag">Supply Chain Operations</span>
-            <span class="skill-tag">Logistics Management</span>
-            <span class="skill-tag">Problem Solving</span>
-            <span class="skill-tag">Time Management</span>
-            <span class="skill-tag">Team Leadership</span>
+          <div class="impact-item">
+            <div class="impact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                <polyline points="17 18 23 18 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="impact-content">
+              <h4>Pendency Reduction</h4>
+              <p>Reduced aged pendency of 3PL returns and rejected shipments by 40%+, improving throughput and warehouse space.</p>
+            </div>
           </div>
-        </section>
 
-        <!-- Certifications & Education Split Section -->
-        <section class="cert-edu-grid">
+          <div class="impact-item">
+            <div class="impact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div class="impact-content">
+              <h4>Process Improvement</h4>
+              <p>Implemented shift-wise performance tracking, layout optimizations, and structured floor-coaching programs.</p>
+            </div>
+          </div>
+
+          <div class="impact-item" id="open-bravo-modal" style="cursor: pointer;">
+            <div class="impact-icon-wrapper" style="color: var(--accent-warning);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <div class="impact-content">
+              <h4 style="color: var(--accent-warning);">Recognition: Bravo Award</h4>
+              <p>Awarded the Bravo Award for successfully leading warehouse operations during flood conditions with limited manpower. (Click to read case study)</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Panel: Experience Snapshot (Flipkart Card) -->
+      <div class="dark-panel-card">
+        <div>
+          <h3 class="section-panel-title">Experience Snapshot</h3>
           
-          <!-- Education Card -->
-          <div class="glass-card">
-            <h2 class="section-title" style="margin-bottom: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
-              </svg>
-              Education
-            </h2>
-            <div class="edu-timeline">
-              <div class="edu-item">
-                <div class="edu-year">2022 - 2024</div>
-                <div class="edu-degree">MBA - International Transportation & Logistics Management</div>
-                <div class="edu-school">Indian Maritime University, Visakhapatnam</div>
-              </div>
-              <div class="edu-item">
-                <div class="edu-year">2019 - 2022</div>
-                <div class="edu-degree">Bachelors in Commerce (B.Com)</div>
-                <div class="edu-school">Hemchand Yadav Vishwavidyalaya, Durg</div>
+          <div class="experience-meta">
+            <div class="company-brand-box">
+              <div class="company-logo-bag">F</div>
+              <div class="company-role-details">
+                <h3>Operations Executive</h3>
+                <span class="company-name">Flipkart</span>
               </div>
             </div>
+            <span class="experience-date-badge">2024 - Present</span>
           </div>
 
-          <!-- Certifications Card -->
-          <div class="glass-card">
-            <h2 class="section-title" style="margin-bottom: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              Professional Certifications
-            </h2>
-            <div class="cert-list">
-              <div class="cert-item">
-                <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Certified in Inventory Management (TCSion)</span>
-              </div>
-              <div class="cert-item">
-                <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Certified in Advance Excel (UDEMY)</span>
-              </div>
-              <div class="cert-item">
-                <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Certified in Supply Chain Management (Coursera)</span>
-              </div>
-              <div class="cert-item">
-                <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Supply Chain Digitization: Strategy and Design</span>
-              </div>
-              <div class="cert-item">
-                <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>International Business Operations</span>
-              </div>
+          <ul class="experience-bullets-list">
+            <li>Overseeing 1.3 lakh sq. ft. warehouse operations.</li>
+            <li>Managing inbound, outbound, sortation, Myntra & reverse logistics.</li>
+            <li>Ensuring timely dispatch across multiple business channels.</li>
+            <li>Coordinating with cross-functional teams (Transport, Inventory, Quality, Security & Support).</li>
+            <li>Preparing and analyzing MIS reports, productivity trackers, pendency reports & dashboards.</li>
+            <li>Ensuring operational efficiency during peak & non-peak periods.</li>
+          </ul>
+        </div>
+        
+        <!-- Tab controller inside experience to support Bales Internship Trainee as well -->
+        <div style="margin-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 16px;">
+          <div class="timeline-nav-block">
+            <span style="font-size: 12px; color: var(--text-light-secondary); font-weight: 500;">Career Timeline:</span>
+            <div class="timeline-nav">
+              <button class="timeline-tab active" data-target="timeline-job-card">Flipkart Role</button>
+              <button class="timeline-tab" data-target="timeline-intern-card">Internship</button>
             </div>
           </div>
+          
+          <div class="timeline-container active" id="timeline-job-card">
+            <!-- Already displayed above -->
+          </div>
 
-        </section>
+          <div class="timeline-container" id="timeline-intern-card">
+            <div class="timeline-tab-content-card">
+              <div class="timeline-tab-dot"></div>
+              <h4 style="font-size: 14px; font-weight: 700; color: #ffffff;">Internship Trainee</h4>
+              <span style="font-size: 12px; color: var(--accent-blue); font-weight: 600;">Bales Project Cargo Logistics</span>
+              <p style="font-size: 12.5px; color: var(--text-light-secondary); margin-top: 8px;">
+                Gujarat, Mundra (June 2023). Contributed to e-marketing strategies and enhanced company digital presence. Gained insights into logistics operations.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      </main>
+      </div>
 
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-      <p>&copy; 2026 Yashika Gautam. All rights reserved. | Built as an Interactive Portfolio. Press Ctrl + P to download as PDF.</p>
-    </footer>
+  <!-- 4. Core Competencies & Education / Certifications Section -->
+  <section class="container" id="skills" style="margin-top: 36px;">
+    
+    <!-- Recruiter Filter Control Bar -->
+    <div class="glass-card" style="margin-bottom: 24px; background: var(--bg-panel); border: 1px solid var(--border-color); box-shadow: var(--card-shadow); padding: 18px 24px;">
+      <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        Recruiter Filter Panel
+      </div>
+      <div class="recruiter-filters-bar">
+        <button class="filter-chip" data-filter="leadership">Highlight Leadership & Team Handling</button>
+        <button class="filter-chip" data-filter="operations">Highlight Warehouse & Logistics Operations</button>
+        <button class="filter-chip" data-filter="analytics">Highlight Analytics, Excel & SLA Controls</button>
+      </div>
+    </div>
 
-  </div>
+    <div class="skills-edu-grid">
+      
+      <!-- Left Panel: Core Competencies -->
+      <div class="white-panel-card">
+        <h3 class="section-panel-title">Core Competencies</h3>
+        <div class="skill-tag-container">
+          <span class="skill-tag">Warehouse Operations</span>
+          <span class="skill-tag">Sortation Operations</span>
+          <span class="skill-tag">Inbound Operations</span>
+          <span class="skill-tag">Outbound Operations</span>
+          <span class="skill-tag">Returns Management</span>
+          <span class="skill-tag">Shipment Processing</span>
+          <span class="skill-tag">Manpower Deployment</span>
+          <span class="skill-tag">Team Handling</span>
+          <span class="skill-tag">Shift Management</span>
+          <span class="skill-tag">Workforce Planning</span>
+          <span class="skill-tag">Vendor Management</span>
+          <span class="skill-tag">KPI Monitoring</span>
+          <span class="skill-tag">Process Improvement</span>
+          <span class="skill-tag">Productivity Management</span>
+          <span class="skill-tag">Capacity Planning</span>
+          <span class="skill-tag">Escalation Handling</span>
+          <span class="skill-tag">Root Cause Analysis (RCA)</span>
+          <span class="skill-tag">Performance Reporting</span>
+          <span class="skill-tag">MIS Reporting</span>
+          <span class="skill-tag">Microsoft Excel</span>
+          <span class="skill-tag">Google Sheets</span>
+          <span class="skill-tag">Warehouse Management System (WMS)</span>
+          <span class="skill-tag">Transportation Coordination</span>
+          <span class="skill-tag">Supply Chain Operations</span>
+          <span class="skill-tag">Logistics Management</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Time Management</span>
+          <span class="skill-tag">Team Leadership</span>
+        </div>
+      </div>
+
+      <!-- Right Panel: Education & Certifications Timeline -->
+      <div class="white-panel-card" id="education">
+        <h3 class="section-panel-title" id="certificates">Education & Certifications</h3>
+        <div class="edu-cert-container">
+          
+          <!-- EducationTimeline Column -->
+          <div class="timeline-edu-flow">
+            <div class="edu-flow-item">
+              <div class="edu-flow-dot"></div>
+              <div class="edu-flow-year">2022 - 2024</div>
+              <div class="edu-flow-degree">MBA - International Transportation & Logistics Management</div>
+              <div class="edu-flow-school">Indian Maritime University, Visakhapatnam</div>
+            </div>
+            <div class="edu-flow-item">
+              <div class="edu-flow-dot"></div>
+              <div class="edu-flow-year">2019 - 2022</div>
+              <div class="edu-flow-degree">Bachelors in Commerce (B.Com)</div>
+              <div class="edu-school">Hemchand Yadav Vishwavidyalaya, Durg</div>
+            </div>
+          </div>
+
+          <!-- Certifications Column -->
+          <div class="certifications-col">
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em;">Certifications</h4>
+            
+            <div class="cert-check-item">
+              <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
+              </svg>
+              <span>Certified in Inventory Management from TCSion</span>
+            </div>
+
+            <div class="cert-check-item">
+              <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
+              </svg>
+              <span>Certified in Advance Excel from UDEMY</span>
+            </div>
+
+            <div class="cert-check-item">
+              <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
+              </svg>
+              <span>Certified in Supply Chain Management by Coursera</span>
+            </div>
+
+            <div class="cert-check-item">
+              <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
+              </svg>
+              <span>Supply Chain Digitization: Strategy and Design</span>
+            </div>
+
+            <div class="cert-check-item">
+              <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
+              </svg>
+              <span>International Business Operations</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Footer Extracurriculars & Call to Connect Panel -->
+  <section class="container" id="contact">
+    <div class="footer-row-grid">
+      
+      <!-- Extracurricular Card -->
+      <div class="white-panel-card" style="padding: 24px 32px;">
+        <h4 style="font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; letter-spacing: 0.05em;">Extracurricular Activities</h4>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="cert-check-item" style="font-size: 13.5px;">
+            <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Working as a core member of an NGO <b>“EK PAHAL EK KOSHISH”</b></span>
+          </div>
+          <div class="cert-check-item" style="font-size: 13.5px;">
+            <svg class="cert-check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>NSS Leader at institutional level for 2 years</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connect/Contact Banner Card -->
+      <div class="connect-panel-card">
+        <div class="connect-text-box">
+          <h3>Let's Connect!</h3>
+          <p>Open to opportunities in Operations, Warehouse Management, Supply Chain & Logistics.</p>
+        </div>
+        <a href="mailto:yashikasingh0303@gmail.com" class="btn-white-action">
+          Get In Touch
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>&copy; 2026 Yashika Gautam. All rights reserved. | Built as an Interactive Portfolio. Press Ctrl + P to download as PDF.</p>
+  </footer>
 
   <!-- Modal Bravo Case Study Popup -->
   <div class="modal" id="bravo-modal">

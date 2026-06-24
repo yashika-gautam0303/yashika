@@ -5,17 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initShareButton();
   init3dTilt();
-  initTimelineSwitcher();
-  initRecruiterFilter();
+  initSmoothScroll();
   initModal();
+  initRecruiterFilter();
 });
 
-/* 1. Theme Management */
+/* 1. Theme Management (Default: Light Theme) */
 function initTheme() {
   const themeToggle = document.getElementById('theme-toggle');
   if (!themeToggle) return;
 
-  const currentTheme = localStorage.getItem('theme') || 'dark';
+  // Set default theme to light if not stored in localStorage
+  const currentTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
 
@@ -33,7 +34,14 @@ function updateThemeIcon(theme) {
   if (!toggleBtn) return;
   
   if (theme === 'light') {
-    // Sun Icon
+    // Moon Icon (click to go dark)
+    toggleBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    `;
+  } else {
+    // Sun Icon (click to go light)
     toggleBtn.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
@@ -47,17 +55,10 @@ function updateThemeIcon(theme) {
         <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
       </svg>
     `;
-  } else {
-    // Moon Icon
-    toggleBtn.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    `;
   }
 }
 
-/* 2. Intersection Observer Stats Counter */
+/* 2. Stats Counter Animation on Scroll */
 function initStatsCounter() {
   const stats = document.querySelectorAll('.stat-number');
   if (stats.length === 0) return;
@@ -84,7 +85,7 @@ function initStatsCounter() {
 function animateCounter(element, targetValue) {
   let currentValue = 0;
   const duration = 1500; // 1.5s
-  const frameRate = 60; // 60fps
+  const frameRate = 60;
   const totalFrames = Math.round(duration / (1000 / frameRate));
   const step = targetValue / totalFrames;
   let frame = 0;
@@ -104,7 +105,7 @@ function animateCounter(element, targetValue) {
 
 function formatNumber(num) {
   if (num >= 100000) {
-    return (num / 1000).toLocaleString() + 'k+';
+    return (num / 1000).toLocaleString() + 'K+';
   }
   if (num >= 1000) {
     return num.toLocaleString() + '+';
@@ -112,28 +113,29 @@ function formatNumber(num) {
   return num + '+';
 }
 
-/* 3. Share Portfolio Button & Toast System */
+/* 3. Share Button Clipboard Copying & Toast Notification */
 function initShareButton() {
-  const shareBtn = document.getElementById('share-btn');
-  if (!shareBtn) return;
-
-  shareBtn.addEventListener('click', () => {
-    const dummyUrl = window.location.href;
-    navigator.clipboard.writeText(dummyUrl).then(() => {
-      showToast('Link copied to clipboard! 📋');
-    }).catch(err => {
-      // Fallback
-      const textArea = document.createElement('textarea');
-      textArea.value = dummyUrl;
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        showToast('Link copied to clipboard! 📋');
-      } catch (e) {
-        showToast('Failed to copy. URL: ' + dummyUrl);
-      }
-      document.body.removeChild(textArea);
+  const shareBtns = document.querySelectorAll('.share-btn');
+  shareBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const portfolioUrl = window.location.href;
+      
+      navigator.clipboard.writeText(portfolioUrl).then(() => {
+        showToast('Portfolio URL copied to clipboard! 📋');
+      }).catch(() => {
+        const textArea = document.createElement('textarea');
+        textArea.value = portfolioUrl;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showToast('Portfolio URL copied! 📋');
+        } catch (err) {
+          showToast('Failed to copy. URL: ' + portfolioUrl);
+        }
+        document.body.removeChild(textArea);
+      });
     });
   });
 }
@@ -150,7 +152,7 @@ function showToast(message) {
   }, 3000);
 }
 
-/* 4. 3D Tilt Effect on Hover */
+/* 4. 3D Tilt Effect on Photo Hover */
 function init3dTilt() {
   const avatar = document.querySelector('.profile-avatar');
   const container = document.querySelector('.profile-avatar-container');
@@ -158,19 +160,17 @@ function init3dTilt() {
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within element
-    const y = e.clientY - rect.top;  // y position within element
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Max degrees of rotation
-    const maxRotate = 10;
-    
+    const maxRotate = 8;
     const rotateY = ((x - centerX) / centerX) * maxRotate;
     const rotateX = -((y - centerY) / centerY) * maxRotate;
     
-    avatar.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    avatar.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
   });
 
   container.addEventListener('mouseleave', () => {
@@ -183,28 +183,25 @@ function init3dTilt() {
   });
 }
 
-/* 5. Timeline Tabs Switcher */
-function initTimelineSwitcher() {
-  const tabs = document.querySelectorAll('.timeline-tab');
-  const containers = document.querySelectorAll('.timeline-container');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-target');
-      
-      tabs.forEach(t => t.classList.remove('active'));
-      containers.forEach(c => c.classList.remove('active'));
-
-      tab.classList.add('active');
-      const targetContainer = document.getElementById(target);
-      if (targetContainer) {
-        targetContainer.classList.add('active');
+/* 5. Smooth Scroll Navigation Links */
+function initSmoothScroll() {
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
       }
     });
   });
 }
 
-/* 6. Recruiter Filters/Highlight Logic */
+/* 6. Recruiter Highlights Logic */
 function initRecruiterFilter() {
   const chips = document.querySelectorAll('.filter-chip');
   if (chips.length === 0) return;
@@ -216,7 +213,7 @@ function initRecruiterFilter() {
   };
 
   const skillTags = {
-    leadership: ['Manpower Deployment', 'Team Handling', 'Shift Management', 'Workforce Planning', 'Team Leadership', 'Problem Solving', 'NSS leader at institutional level for 2years'],
+    leadership: ['Manpower Deployment', 'Team Handling', 'Shift Management', 'Workforce Planning', 'Team Leadership', 'Problem Solving'],
     operations: ['Warehouse Operations', 'Sortation Operations', 'Inbound Operations', 'Outbound Operations', 'Returns Management', 'Shipment Processing', 'Warehouse Management System (WMS)', 'Transportation Coordination', 'Supply Chain Operations', 'Logistics Management'],
     analytics: ['KPI Monitoring', 'Performance Reporting', 'MIS Reporting', 'Microsoft Excel', 'Google Sheets']
   };
@@ -226,7 +223,6 @@ function initRecruiterFilter() {
       const type = chip.getAttribute('data-filter');
       const isActive = chip.classList.contains('active');
 
-      // Clear all active states first
       chips.forEach(c => c.classList.remove('active'));
       clearHighlights();
 
@@ -238,10 +234,9 @@ function initRecruiterFilter() {
   });
 
   function highlightCategory(type) {
-    const listItems = document.querySelectorAll('.timeline-details li, .sidebar-extra li');
+    const listItems = document.querySelectorAll('.timeline-details li, .sidebar-extra li, .impact-list li');
     const tags = document.querySelectorAll('.skill-tag');
 
-    // Highlight text bullets
     listItems.forEach(li => {
       const text = li.innerText.toLowerCase();
       const match = keywords[type].some(word => text.includes(word));
@@ -250,7 +245,6 @@ function initRecruiterFilter() {
       }
     });
 
-    // Highlight skill tags
     tags.forEach(tag => {
       const tagText = tag.innerText;
       const match = skillTags[type].some(skill => tagText.includes(skill) || skill.includes(tagText));
@@ -258,22 +252,16 @@ function initRecruiterFilter() {
         tag.classList.add('highlighted');
       }
     });
-
-    // Auto navigate to the relevant timeline tab if needed
-    if (type === 'operations' || type === 'leadership' || type === 'analytics') {
-      const tab = document.querySelector('[data-target="timeline-job"]');
-      if (tab) tab.click();
-    }
   }
 
   function clearHighlights() {
-    document.querySelectorAll('.timeline-details li, .sidebar-extra li, .skill-tag').forEach(el => {
+    document.querySelectorAll('.timeline-details li, .sidebar-extra li, .impact-list li, .skill-tag').forEach(el => {
       el.classList.remove('highlighted');
     });
   }
 }
 
-/* 7. Modal Control for Bravo Award Spotlight */
+/* 7. Modal Control for Case Study */
 function initModal() {
   const openBtn = document.getElementById('open-bravo-modal');
   const closeBtn = document.getElementById('close-bravo-modal');
@@ -284,7 +272,7 @@ function initModal() {
   openBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // prevent scroll
+    document.body.style.overflow = 'hidden';
   });
 
   closeBtn.addEventListener('click', () => {
