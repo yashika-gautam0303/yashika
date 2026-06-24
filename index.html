@@ -10,12 +10,10 @@
 </head>
 <body>
   
-  <!-- 1. Top Dark Block (Header + Hero Section) -->
-  <section class="hero-block" id="home">
+  <!-- 1. Global Sticky Navigation Header -->
+  <header class="main-header">
     <div class="container">
-      
-      <!-- Main Navigation Header -->
-      <header class="main-header">
+      <div class="header-container">
         <div class="logo">
           <h2>YG</h2>
         </div>
@@ -43,9 +41,16 @@
             Download Resume
           </button>
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <!-- 2. Hero Section Dark Block -->
+  <section class="hero-block" id="home">
+    <div class="container">
+      
       <!-- Hero Content -->
+
       <div class="hero-content" id="about">
         
         <!-- Profile Picture Container with 3D hover -->
@@ -320,9 +325,10 @@
 
       <!-- Right Panel: Experience Snapshot (Flipkart Card) -->
       <div class="dark-panel-card">
-        <div>
-          <h3 class="section-panel-title">Experience Snapshot</h3>
-          
+        <h3 class="section-panel-title">Experience Snapshot</h3>
+        
+        <!-- Tab 1: Flipkart Job Experience -->
+        <div class="timeline-container active" id="timeline-job-card">
           <div class="experience-meta">
             <div class="company-brand-box">
               <div class="company-logo-bag">F</div>
@@ -343,7 +349,34 @@
             <li>Ensuring operational efficiency during peak & non-peak periods.</li>
           </ul>
         </div>
-        
+
+        <!-- Tab 2: Internship Experience -->
+        <div class="timeline-container" id="timeline-intern-card">
+          <div class="experience-meta">
+            <div class="company-brand-box">
+              <div class="company-logo-bag" style="background: var(--accent-primary); color: white;">B</div>
+              <div class="company-role-details">
+                <h3>Internship Trainee</h3>
+                <span class="company-name">Bales Project Cargo Logistics</span>
+              </div>
+            </div>
+            <span class="experience-date-badge">June 2023</span>
+          </div>
+
+          <div style="font-size: 13px; color: var(--text-light-secondary); margin: 12px 0; display: flex; align-items: center; gap: 6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Mundra, Gujarat
+          </div>
+
+          <ul class="experience-bullets-list">
+            <li>Contributed to e-marketing strategies and enhanced the company’s digital presence.</li>
+            <li>Gained deep operational insights into overall logistics, cargo transportation, and freight handling processes.</li>
+          </ul>
+        </div>
+
         <!-- Tab controller inside experience to support Bales Internship Trainee as well -->
         <div style="margin-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 16px;">
           <div class="timeline-nav-block">
@@ -353,24 +386,10 @@
               <button class="timeline-tab" data-target="timeline-intern-card">Internship</button>
             </div>
           </div>
-          
-          <div class="timeline-container active" id="timeline-job-card">
-            <!-- Already displayed above -->
-          </div>
-
-          <div class="timeline-container" id="timeline-intern-card">
-            <div class="timeline-tab-content-card">
-              <div class="timeline-tab-dot"></div>
-              <h4 style="font-size: 14px; font-weight: 700; color: #ffffff;">Internship Trainee</h4>
-              <span style="font-size: 12px; color: var(--accent-blue); font-weight: 600;">Bales Project Cargo Logistics</span>
-              <p style="font-size: 12.5px; color: var(--text-light-secondary); margin-top: 8px;">
-                Gujarat, Mundra (June 2023). Contributed to e-marketing strategies and enhanced company digital presence. Gained insights into logistics operations.
-              </p>
-            </div>
-          </div>
         </div>
 
       </div>
+
 
     </div>
   </section>

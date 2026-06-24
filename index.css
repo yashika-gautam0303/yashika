@@ -97,11 +97,56 @@ a {
 }
 
 .main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7, 14, 32, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
+  padding: 14px 0;
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+[data-theme="light"] .main-header {
+  background: rgba(243, 246, 251, 0.96);
+  border-bottom-color: rgba(15, 23, 42, 0.06);
+}
+
+.main-header .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  width: 100%;
 }
+
+[data-theme="light"] .nav-links a {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-header-resume {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-header-resume:hover {
+  background: var(--text-primary);
+  color: #ffffff;
+  border-color: var(--text-primary);
+}
+
+[data-theme="light"] .logo h2 {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 
 .logo h2 {
   font-size: 22px;
@@ -253,10 +298,12 @@ a {
 /* Contact Details Cards in Hero (4 columns) */
 .hero-contacts-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 28px;
+  width: 100%;
 }
+
 
 .hero-contact-card {
   background: rgba(255, 255, 255, 0.04);
@@ -296,13 +343,15 @@ a {
 }
 
 .contact-info-title {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-light);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
+
 
 .contact-info-subtitle {
   font-size: 11px;
@@ -1195,9 +1244,10 @@ a {
   }
   
   .hero-contacts-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 8px !important;
     margin-bottom: 10px !important;
+    width: 100% !important;
   }
   
   .hero-contact-card {
@@ -1211,8 +1261,10 @@ a {
   }
   
   .contact-info-title {
-    font-size: 9pt !important;
+    font-size: 8pt !important;
     color: black !important;
+    word-break: break-all !important;
+    white-space: normal !important;
   }
   
   .contact-info-subtitle {
@@ -1235,11 +1287,11 @@ a {
   }
   
   .section-panel-title {
-    font-size: 12pt !important;
+    font-size: 11pt !important;
     color: black !important;
     border-bottom: 1px solid #ccc !important;
     padding-bottom: 4px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
   }
   
   .impact-icon-wrapper {
@@ -1247,11 +1299,12 @@ a {
   }
   
   .impact-content h4 {
-    font-size: 11pt !important;
+    font-size: 10pt !important;
   }
   
   .impact-content p {
-    font-size: 9pt !important;
+    font-size: 8pt !important;
+    line-height: 1.3 !important;
   }
   
   .company-logo-bag {
@@ -1260,7 +1313,7 @@ a {
   
   .company-role-details h3 {
     color: black !important;
-    font-size: 11pt !important;
+    font-size: 10pt !important;
   }
   
   .company-role-details .company-name {
@@ -1272,11 +1325,18 @@ a {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
+    font-size: 9pt !important;
   }
   
+  .experience-bullets-list {
+    margin-top: 10px !important;
+  }
+
   .experience-bullets-list li {
-    font-size: 9.5pt !important;
+    font-size: 8.5pt !important;
     color: #222 !important;
+    margin-bottom: 3px !important;
+    line-height: 1.3 !important;
   }
   
   .experience-bullets-list li::before {
@@ -1287,6 +1347,17 @@ a {
     color: black !important;
   }
   
+  .timeline-container {
+    display: block !important; /* Force both job & internship cards to show inline on print */
+    opacity: 1 !important;
+  }
+
+  #timeline-intern-card {
+    margin-top: 18px !important;
+    border-top: 1px dashed #ccc !important;
+    padding-top: 12px !important;
+  }
+
   .skills-edu-grid {
     grid-template-columns: 1fr 1.2fr !important;
     gap: 20px !important;
@@ -1294,8 +1365,8 @@ a {
   }
   
   .skill-tag {
-    font-size: 8.5pt !important;
-    padding: 3px 6px !important;
+    font-size: 8pt !important;
+    padding: 2px 6px !important;
     border: 1px solid #ccc !important;
     background: transparent !important;
     color: black !important;
@@ -1307,19 +1378,19 @@ a {
   }
   
   .edu-flow-degree {
-    font-size: 10pt !important;
+    font-size: 9.5pt !important;
   }
   
   .edu-flow-item {
-    padding-bottom: 6px !important;
+    padding-bottom: 4px !important;
   }
   
   .cert-check-item {
-    font-size: 9pt !important;
+    font-size: 8.5pt !important;
   }
   
   .footer-row-grid {
     grid-template-columns: 1fr !important;
     margin-top: 15px !important;
-  }
 }
+
