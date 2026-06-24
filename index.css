@@ -256,8 +256,9 @@ a {
   grid-template-columns: 280px 1fr;
   gap: 48px;
   margin-top: 36px;
-  align-items: center;
+  align-items: start;
 }
+
 
 .profile-avatar-container {
   width: 250px;
