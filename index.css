@@ -100,18 +100,20 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(7, 14, 32, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(7, 14, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
   padding: 14px 0;
-  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 [data-theme="light"] .main-header {
-  background: rgba(243, 246, 251, 0.96);
+  background: rgba(243, 246, 251, 0.75);
   border-bottom-color: rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 30px rgba(15, 23, 42, 0.03);
 }
 
 .main-header .header-container {
@@ -149,12 +151,22 @@ a {
 
 
 .logo h2 {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 800;
   background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  transition: font-size var(--transition-speed) ease;
 }
+
+@media (max-width: 768px) {
+  .logo h2 {
+    font-size: 15px;
+  }
+}
+
 
 .nav-links {
   display: flex;
