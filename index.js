@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3dTilt();
   initSmoothScroll();
   initModal();
-  initRecruiterFilter();
+  initTimelineTabs();
 });
 
 /* 1. Theme Management (Default: Light Theme) */
@@ -201,64 +201,29 @@ function initSmoothScroll() {
   });
 }
 
-/* 6. Recruiter Highlights Logic */
-function initRecruiterFilter() {
-  const chips = document.querySelectorAll('.filter-chip');
-  if (chips.length === 0) return;
+/* 6. Career Timeline Tab Switcher */
+function initTimelineTabs() {
+  const tabs = document.querySelectorAll('.timeline-tab');
+  const containers = document.querySelectorAll('.timeline-container');
 
-  const keywords = {
-    leadership: ['team', 'lead', 'supervised', 'managed', 'associates', 'workforce', 'coaching', 'mentoring', 'ngo', 'nss', 'leadership'],
-    operations: ['operations', 'warehouse', 'inbound', 'outbound', 'sortation', 'returns', 'logistics', 'shipment', 'reconciliation', 'dispatch', 'receiving', 'put-away', 'picking', 'packing'],
-    analytics: ['sla', 'mis', 'kpi', 'excel', 'data-driven', 'dashboard', 'reports', 'monitoring', 'dashboards', 'reporting', 'analysis']
-  };
+  if (tabs.length === 0) return;
 
-  const skillTags = {
-    leadership: ['Manpower Deployment', 'Team Handling', 'Shift Management', 'Workforce Planning', 'Team Leadership', 'Problem Solving'],
-    operations: ['Warehouse Operations', 'Sortation Operations', 'Inbound Operations', 'Outbound Operations', 'Returns Management', 'Shipment Processing', 'Warehouse Management System (WMS)', 'Transportation Coordination', 'Supply Chain Operations', 'Logistics Management'],
-    analytics: ['KPI Monitoring', 'Performance Reporting', 'MIS Reporting', 'Microsoft Excel', 'Google Sheets']
-  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-target');
+      
+      // Remove active class from all tabs and containers
+      tabs.forEach(t => t.classList.remove('active'));
+      containers.forEach(c => c.classList.remove('active'));
 
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const type = chip.getAttribute('data-filter');
-      const isActive = chip.classList.contains('active');
-
-      chips.forEach(c => c.classList.remove('active'));
-      clearHighlights();
-
-      if (!isActive) {
-        chip.classList.add('active');
-        highlightCategory(type);
+      // Add active class to clicked tab and target container
+      tab.classList.add('active');
+      const targetContainer = document.getElementById(targetId);
+      if (targetContainer) {
+        targetContainer.classList.add('active');
       }
     });
   });
-
-  function highlightCategory(type) {
-    const listItems = document.querySelectorAll('.timeline-details li, .sidebar-extra li, .impact-list li');
-    const tags = document.querySelectorAll('.skill-tag');
-
-    listItems.forEach(li => {
-      const text = li.innerText.toLowerCase();
-      const match = keywords[type].some(word => text.includes(word));
-      if (match) {
-        li.classList.add('highlighted');
-      }
-    });
-
-    tags.forEach(tag => {
-      const tagText = tag.innerText;
-      const match = skillTags[type].some(skill => tagText.includes(skill) || skill.includes(tagText));
-      if (match) {
-        tag.classList.add('highlighted');
-      }
-    });
-  }
-
-  function clearHighlights() {
-    document.querySelectorAll('.timeline-details li, .sidebar-extra li, .impact-list li, .skill-tag').forEach(el => {
-      el.classList.remove('highlighted');
-    });
-  }
 }
 
 /* 7. Modal Control for Case Study */
