@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initModal();
   initTimelineTabs();
+  initContactModal();
 });
 
 /* 1. Theme Management (Default: Light Theme) */
@@ -243,6 +244,42 @@ function initModal() {
   closeBtn.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+/* 8. Contact Options Modal */
+function initContactModal() {
+  const openBtn = document.getElementById('open-contact-modal');
+  const closeBtn = document.getElementById('close-contact-modal');
+  const modal = document.getElementById('contact-modal');
+
+  if (!openBtn || !closeBtn || !modal) return;
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Also close modal if clicking a contact option inside it
+  const optionItems = modal.querySelectorAll('.contact-option-item');
+  optionItems.forEach(item => {
+    item.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
   });
 
   window.addEventListener('click', (e) => {
