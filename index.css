@@ -309,6 +309,10 @@ a {
   line-height: 1.6;
 }
 
+.print-qr-container {
+  display: none;
+}
+
 /* Contact Details in Hero (Single Rounded Bar) */
 .hero-contacts-grid {
   display: flex;
@@ -1188,6 +1192,34 @@ a {
     width: 100% !important;
   }
 
+  .print-qr-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 15mm !important;
+    width: 60px !important;
+    gap: 4px !important;
+  }
+
+  .print-qr-container img {
+    width: 50px !important;
+    height: 50px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    padding: 2px !important;
+    background: #ffffff !important;
+  }
+
+  .print-qr-container span {
+    font-size: 4.5pt !important;
+    color: #475569 !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+  }
+
   /* Hide interactive widgets */
   .main-header,
   .hero-buttons,
@@ -1249,6 +1281,7 @@ a {
   .hero-block {
     background: transparent !important;
     color: #0f172a !important;
+    position: relative !important;
     padding-top: 15mm !important;
     padding-bottom: 15px !important;
     border-bottom: 2px solid #0f172a !important;
@@ -1369,8 +1402,8 @@ a {
   /* Section Title print format */
   .section-panel-title {
     font-size: 12pt !important;
-    color: #0f172a !important;
-    border-bottom: 1.5px solid #0f172a !important;
+    color: #1d4ed8 !important;
+    border-bottom: 1.5px solid #1d4ed8 !important;
     padding-bottom: 4px !important;
     margin-bottom: 14px !important;
     text-transform: uppercase;
@@ -1414,16 +1447,17 @@ a {
 
   .company-role-details .company-name {
     font-size: 9.5pt !important;
-    color: #475569 !important;
+    color: #1d4ed8 !important;
     font-weight: 600 !important;
   }
 
   .experience-date-badge {
     font-size: 9pt !important;
-    color: #475569 !important;
+    color: #1d4ed8 !important;
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
+    font-weight: 600 !important;
   }
 
   .experience-bullets-list {
@@ -1469,6 +1503,10 @@ a {
     font-size: 8pt !important;
     color: #475569 !important;
     line-height: 1.3 !important;
+  }
+
+  .impact-content strong {
+    color: #1d4ed8 !important;
   }
 
   /* Skills tag print styles */
@@ -1524,7 +1562,7 @@ a {
 
   .cert-check-icon {
     display: flex !important;
-    color: #10b981 !important;
+    color: #1d4ed8 !important;
     width: 10px !important;
     height: 10px !important;
     flex-shrink: 0 !important;
@@ -1535,7 +1573,7 @@ a {
 
   #education,
   #extracurriculars {
-    margin-top: 25px !important;
+    margin-top: 15mm !important;
   }
 
   /* Extracurricular Activities print formatting */
