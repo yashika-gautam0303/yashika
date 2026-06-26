@@ -1251,7 +1251,7 @@ a {
     grid-template-columns: 1fr 1.25fr !important;
     gap: 16px !important;
     width: 100% !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
     page-break-inside: avoid !important;
   }
 
@@ -1275,7 +1275,7 @@ a {
 
   .footer-row-grid {
     display: block !important;
-    margin-top: 8px !important;
+    margin-top: 10px !important;
     width: 100% !important;
     page-break-inside: avoid !important;
   }
@@ -1593,10 +1593,6 @@ a {
   #education,
   #extracurriculars {
     margin-top: 0 !important;
-  }
-
-  #extracurriculars {
-    margin-top: 10px !important;
   }
 
   #extracurriculars h4 {
