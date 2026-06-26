@@ -320,6 +320,7 @@ a {
   padding: 12px 24px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  margin-top: 32px;
   margin-bottom: 28px;
   width: 100%;
   gap: 20px;
@@ -1312,6 +1313,7 @@ a {
     border: 1px solid #cbd5e1 !important;
     border-radius: 8px !important;
     padding: 8px 12px !important;
+    margin-top: 15px !important;
     margin-bottom: 0 !important;
     width: 100% !important;
     gap: 12px !important;
@@ -1511,12 +1513,27 @@ a {
   }
 
   .cert-check-item {
+    display: flex !important;
+    align-items: start !important;
+    gap: 6px !important;
     font-size: 8.5pt !important;
     margin-bottom: 6px !important;
   }
 
   .cert-check-icon {
-    display: none !important;
+    display: flex !important;
+    color: #10b981 !important;
+    width: 10px !important;
+    height: 10px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #education,
+  #extracurriculars {
+    margin-top: 25px !important;
   }
 
   /* Extracurricular Activities print formatting */
