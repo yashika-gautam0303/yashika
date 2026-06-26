@@ -1183,13 +1183,15 @@ a {
   }
 
   body {
-    background: #ffffff !important;
+    background: #f8fafc !important;
     color: #0f172a !important;
-    font-size: 10pt !important;
-    padding: 0 20mm !important;
+    font-size: 8pt !important;
+    padding: 8mm 12mm !important;
     margin: 0 !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
     width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .print-qr-container {
@@ -1198,14 +1200,14 @@ a {
     align-items: center !important;
     position: absolute !important;
     right: 0 !important;
-    top: 15mm !important;
-    width: 60px !important;
-    gap: 4px !important;
+    top: 0 !important;
+    width: 55px !important;
+    gap: 2px !important;
   }
 
   .print-qr-container img {
-    width: 50px !important;
-    height: 50px !important;
+    width: 45px !important;
+    height: 45px !important;
     border: 1px solid #cbd5e1 !important;
     border-radius: 4px !important;
     padding: 2px !important;
@@ -1213,10 +1215,10 @@ a {
   }
 
   .print-qr-container span {
-    font-size: 4.5pt !important;
+    font-size: 4pt !important;
     color: #475569 !important;
     text-align: center !important;
-    line-height: 1.1 !important;
+    line-height: 1 !important;
     font-weight: 700 !important;
   }
 
@@ -1233,35 +1235,39 @@ a {
     display: none !important;
   }
 
-  /* Linearize layout - full width vertical stack */
-  .portfolio-grid {
-    display: block !important;
-    width: 100% !important;
-  }
-
+  /* Split layout matching web - 2 columns side by side on single page */
   .experience-impact-grid {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.25fr !important;
+    gap: 16px !important;
     width: 100% !important;
+    margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
   }
 
   .skills-edu-grid {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.25fr !important;
+    gap: 16px !important;
     width: 100% !important;
-    padding-top: 15mm !important;
-    page-break-before: always !important; /* Force Core Competencies & Education to Page 2 */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   .edu-cert-container {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 24px !important;
-    margin-top: 15px !important;
+    gap: 16px !important;
+    margin-top: 8px !important;
   }
 
   .footer-row-grid {
     display: block !important;
-    margin-top: 20px !important;
+    margin-top: 10px !important;
     width: 100% !important;
+    page-break-inside: avoid !important;
   }
 
   /* Cards styling reset */
@@ -1272,7 +1278,7 @@ a {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 0 !important;
     color: #0f172a !important;
     width: 100% !important;
   }
@@ -1282,29 +1288,30 @@ a {
     background: transparent !important;
     color: #0f172a !important;
     position: relative !important;
-    padding-top: 15mm !important;
-    padding-bottom: 15px !important;
-    border-bottom: 2px solid #0f172a !important;
-    margin-bottom: 20px !important;
+    padding-top: 0 !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid #1d4ed8 !important;
+    margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
   }
 
   .hero-content {
     display: flex !important;
     align-items: start !important;
-    gap: 24px !important;
+    gap: 16px !important;
     margin-top: 0 !important;
   }
 
   .profile-avatar-container {
-    width: 110px !important;
-    height: 130px !important;
+    width: 80px !important;
+    height: 95px !important;
     flex-shrink: 0 !important;
   }
 
   .profile-avatar {
-    width: 110px !important;
-    height: 130px !important;
-    border-radius: 12px !important;
+    width: 80px !important;
+    height: 95px !important;
+    border-radius: 8px !important;
     border: 1px solid #cbd5e1 !important;
     box-shadow: none !important;
   }
@@ -1314,10 +1321,10 @@ a {
   }
 
   .hero-text-details h1 {
-    font-size: 24pt !important;
+    font-size: 18pt !important;
     color: #0f172a !important;
     line-height: 1.1 !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 2px !important;
   }
 
   .hero-text-details h1 span {
@@ -1327,31 +1334,30 @@ a {
   }
 
   .hero-subtitle {
-    font-size: 13pt !important;
+    font-size: 11pt !important;
     color: #475569 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
+    font-weight: 800 !important;
   }
 
   .hero-tagline {
-    font-size: 10pt !important;
+    font-size: 8.5pt !important;
     color: #64748b !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
   }
 
-  /* Hero Contacts Grid print format */
+  /* Hero Contacts Grid print format - 2 columns to prevent clipping email/linkedin */
   .hero-contacts-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.1fr !important;
     background: #f1f5f9 !important;
     border: 1px solid #cbd5e1 !important;
-    border-radius: 8px !important;
-    padding: 8px 12px !important;
-    margin-top: 15px !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    margin-top: 8px !important;
     margin-bottom: 0 !important;
     width: 100% !important;
-    gap: 12px !important;
+    gap: 4px 12px !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -1363,7 +1369,6 @@ a {
     display: flex !important;
     align-items: center !important;
     gap: 6px !important;
-    flex: 1 !important;
     min-width: 0 !important;
   }
 
@@ -1379,20 +1384,21 @@ a {
   }
 
   .contact-icon-box svg {
-    width: 12px !important;
-    height: 12px !important;
+    width: 11px !important;
+    height: 11px !important;
   }
 
   .contact-info-text {
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .contact-info-title {
     font-size: 7.5pt !important;
     color: #0f172a !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
+    word-break: break-all !important;
   }
 
   .contact-info-subtitle {
@@ -1401,11 +1407,11 @@ a {
 
   /* Section Title print format */
   .section-panel-title {
-    font-size: 12pt !important;
+    font-size: 10.5pt !important;
     color: #1d4ed8 !important;
     border-bottom: 1.5px solid #1d4ed8 !important;
-    padding-bottom: 4px !important;
-    margin-bottom: 14px !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 8px !important;
     text-transform: uppercase;
     font-weight: 700;
   }
@@ -1414,45 +1420,34 @@ a {
   .timeline-container {
     display: block !important; /* Force both job & internship cards to show inline on print */
     opacity: 1 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
   }
 
   #timeline-intern-card {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
     border-top: 1px dashed #cbd5e1 !important;
-    padding-top: 15px !important;
+    padding-top: 8px !important;
   }
 
-  .experience-meta {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin-bottom: 8px !important;
-  }
-
-  .company-brand-box {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .company-logo-bag {
-    display: none !important;
+  #timeline-intern-card div[style*="margin"] {
+    margin: 4px 0 !important;
+    font-size: 7.5pt !important;
+    color: #475569 !important;
   }
 
   .company-role-details h3 {
-    font-size: 11pt !important;
+    font-size: 9.5pt !important;
     color: #0f172a !important;
   }
 
   .company-role-details .company-name {
-    font-size: 9.5pt !important;
+    font-size: 8.5pt !important;
     color: #1d4ed8 !important;
     font-weight: 600 !important;
   }
 
   .experience-date-badge {
-    font-size: 9pt !important;
+    font-size: 8pt !important;
     color: #1d4ed8 !important;
     background: transparent !important;
     border: none !important;
@@ -1461,16 +1456,16 @@ a {
   }
 
   .experience-bullets-list {
-    margin-top: 8px !important;
-    padding-left: 15px !important;
+    margin-top: 4px !important;
+    padding-left: 12px !important;
     list-style-type: disc !important;
   }
 
   .experience-bullets-list li {
-    font-size: 8.5pt !important;
+    font-size: 7.5pt !important;
     color: #334155 !important;
-    margin-bottom: 4px !important;
-    line-height: 1.35 !important;
+    margin-bottom: 2px !important;
+    line-height: 1.25 !important;
     padding-left: 0 !important;
   }
 
@@ -1481,13 +1476,14 @@ a {
 
   /* Operational Impact Section print styles */
   .impact-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important; /* Save space by printing in 2 columns */
-    gap: 12px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
   }
 
   .impact-item {
-    gap: 8px !important;
+    gap: 4px !important;
+    margin-bottom: 2px !important;
   }
 
   .impact-icon-wrapper {
@@ -1495,14 +1491,16 @@ a {
   }
 
   .impact-content h4 {
-    font-size: 9.5pt !important;
+    font-size: 8.5pt !important;
     color: #0f172a !important;
+    margin-bottom: 1px !important;
+    font-weight: 700 !important;
   }
 
   .impact-content p {
-    font-size: 8pt !important;
+    font-size: 7.5pt !important;
     color: #475569 !important;
-    line-height: 1.3 !important;
+    line-height: 1.25 !important;
   }
 
   .impact-content strong {
@@ -1513,12 +1511,12 @@ a {
   .skill-tag-container {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 4px !important;
   }
 
   .skill-tag {
-    font-size: 8pt !important;
-    padding: 3px 8px !important;
+    font-size: 7.5pt !important;
+    padding: 2px 6px !important;
     border: 1px solid #cbd5e1 !important;
     background: transparent !important;
     color: #0f172a !important;
@@ -1527,37 +1525,48 @@ a {
 
   /* Education & Certs timeline */
   .timeline-edu-flow {
-    gap: 14px !important;
+    gap: 8px !important;
   }
 
   .edu-flow-item {
-    padding-left: 12px !important;
-    padding-bottom: 4px !important;
-    border-left-width: 1.5px !important;
+    padding-left: 10px !important;
+    padding-bottom: 2px !important;
+    border-left: 1px solid #cbd5e1 !important;
   }
 
   .edu-flow-dot {
-    width: 8px !important;
-    height: 8px !important;
-    left: -5px !important;
-    border-width: 2px !important;
+    width: 6px !important;
+    height: 6px !important;
+    left: -4px !important;
+    border: 1.5px solid #0f172a !important;
     background: #0f172a !important;
   }
 
+  .edu-flow-year {
+    font-size: 7.5pt !important;
+    margin-bottom: 1px !important;
+  }
+
   .edu-flow-degree {
-    font-size: 9.5pt !important;
+    font-size: 8.5pt !important;
+    font-weight: 700 !important;
   }
 
   .edu-flow-school {
-    font-size: 8.5pt !important;
+    font-size: 7.5pt !important;
+  }
+
+  .certifications-col {
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .cert-check-item {
     display: flex !important;
     align-items: start !important;
     gap: 6px !important;
-    font-size: 8.5pt !important;
-    margin-bottom: 6px !important;
+    font-size: 7.5pt !important;
+    margin-bottom: 4px !important;
   }
 
   .cert-check-icon {
@@ -1573,7 +1582,22 @@ a {
 
   #education,
   #extracurriculars {
-    margin-top: 15mm !important;
+    margin-top: 0 !important;
+  }
+
+  #extracurriculars {
+    margin-top: 10px !important;
+  }
+
+  #extracurriculars h4 {
+    font-size: 10.5pt !important;
+    color: #1d4ed8 !important;
+    border-bottom: 1.5px solid #1d4ed8 !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: normal !important;
   }
 
   /* Extracurricular Activities print formatting */
